@@ -1,32 +1,38 @@
-#Section 1: Comparisons and Conditionals
+#%%
+# Section 1: Comparisons and Conditionals
 # Comparison operators
 is_true = True
 is_true = 5 > 4
+print(is_true)
 
+#%%
 # Logical operators
 age = 25
 is_in_age_range = age > 20 and age < 30
 
-#Exercise 3: if - Conditionals
+print(is_in_age_range)
+#%%
+# Exercise 3: if - Conditionals
 age = 16
-#converting age to an integer for calculations
-aged = int(age)
+# converting age to an integer for calculations
+age = int(age)
 age_group = "child"
 
-if aged > 18:
+if age > 18:
     age_group = "adult"
 
 print(f"The age group is {age_group}")
 
-#Ex 4: if - else Conditionals
+#%%
+# Ex 4: if - else Conditionals
 wind_speed = 9
 
 if wind_speed < 10:
     print("It is a calm day")
 else:
     print("It is a windy day")
-
-#Ex 5: if - elif - else Conditionals
+#%%
+# Ex 5: if - elif - else Conditionals
 grade = 88
 
 if grade < 50:
@@ -37,8 +43,8 @@ elif grade < 70:
     print("You got a good pass")
 else:
     print("You got an excellent pass")
-
-#Ex 6: Summary Tasks
+#%%
+# Ex 6: Summary Tasks
 temperature1 = 10
 temperature2 = 10
 
@@ -46,7 +52,7 @@ if temperature1 == temperature2:
     print("temperture 1 and tenperature2 are equal")
 else:
     print("The 2 temperatures are not equal")
-
+#%%
 #Section 2 : Python Lists
 #Ex 1: Creating a List
 integer_list = [1, 2, 3, 4, 5]
