@@ -7,6 +7,8 @@ class TaskList:
 my_task_list = TaskList("John")
 print(my_task_list.owner)
 
+# small code change
+
 #%%
 class TaskList:
     def __init__(self, owner):
