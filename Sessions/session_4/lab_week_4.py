@@ -288,8 +288,8 @@ class TaskList:
                 else:
                     print("Invalid choice. ")
 
-#my_task_list = TaskList("Lynn")
-#my_task_list.list_options()
+my_task_list = TaskList("Lynn")
+my_task_list.list_options()
 #%%
 
 #%%
@@ -381,5 +381,5 @@ class TaskList:
                     print("Invalid choice. ")
 
 my_task_list = TaskList("Lynn")
-#my_task_list.list_options()
+my_task_list.list_options()
 #%%
