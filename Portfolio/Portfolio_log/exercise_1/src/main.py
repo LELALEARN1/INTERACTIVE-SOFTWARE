@@ -21,6 +21,8 @@ def propagate_task_list(task_list: TaskList) -> TaskList:
 
 def list_options(task_list):
     #propagate the task list with some sample tasks
+    task_list = propagate_task_list(task_list)
+
     #task_list = propagate_task_list(task_list)
 
     while True:
@@ -30,7 +32,7 @@ def list_options(task_list):
         print("2. View tasks")
         print("3. Remove a task")
         print("4. Mark a task as completed")
-        print("5. Change a task title")
+        print("5. Edit a task")
         print("6. Change a task due date")
         print("7. Quit")
 
@@ -53,15 +55,16 @@ def list_options(task_list):
         elif choice == "4":
             ix = int(input("Enter number of task to be marked as completed: "))
             task_list.tasks[ix-1].mark_completed() # Adjusting for 0-based index
-            ch_description = input("Do you want to change the description of the task? (y/n): ")
-            if ch_description.lower() == "y":
-                new_description = input("Enter new description: ")
-                task_list.tasks[ix-1].change_description(new_description) # Adjusting for 0-based index
+  
 
         elif choice == "5":
             ix = int(input("Enter number of task to be changed: "))
             new_title = input("Enter new title:")
             task_list.tasks[ix-1].change_title(new_title) # Adjusting for 0-based index
+            ch_description = input("Do you want to change the description of the task? (y/n): ")
+            if ch_description.lower() == "y":
+                new_description = input("Enter new description: ")
+                task_list.tasks[ix-1].change_description(new_description) # Adjusting for 0-based index
 
         elif choice == "6":
             ix = int(input("Enter number of task to be changed: "))
