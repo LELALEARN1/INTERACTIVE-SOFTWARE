@@ -57,7 +57,6 @@ def list_options(task_list):
             ix = int(input("Enter number of task to be marked as completed: "))
             task_list.tasks[ix-1].mark_completed() # Adjusting for 0-based index
   
-
         elif choice == "5":
             ix = int(input("Enter number of task to be changed: "))
             new_title = input("Enter new title:")
@@ -74,6 +73,10 @@ def list_options(task_list):
             task_list.tasks[ix-1].change_date_due(date_object) # Adjusting for 0-based index
 
         elif choice == "7":
+            print("Overdue Tasks:")
+            task_list.view_overdue_tasks()
+
+        elif choice == "8":
             print("Exiting To-Do List Manager")
             break
 

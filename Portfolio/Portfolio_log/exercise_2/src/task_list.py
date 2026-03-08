@@ -16,4 +16,8 @@ class TaskList:
         for task in self.tasks:
             print(f"Title {task.title}, Due Date: {task.date_due}, Status: {'Completed' if task.completed else 'Not Completed'} - Description: {task.description}")
 
-
+    def view_overdue_tasks(self):
+        current_date = datetime.datetime.now()
+        for task in self.tasks:
+            if task.date_due < current_date and not task.completed:
+                print(f"Title {task.title}, Due Date: {task.date_due}, Status: {'Completed' if task.completed else 'Not Completed'} - Description: {task.description}")
