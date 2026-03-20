@@ -1,0 +1,128 @@
+# adjusting   main.py (copied from main.py) to include the RecurringTask class as follows:
+
+#from Sessions.session_4.ToDoApp import task_list
+from task_list import TaskList  
+from tasks import Task, RecurringTask
+import datetime
+
+# Files readyto start exercise 2;
+# no this is copied from exercise 2 to do WK6 lab on recurring tasks, with the addition of the RecurringTask class and some adjustments to the list_options function to handle recurring tasks.
+
+def propagate_task_list(task_list: TaskList) -> TaskList:  
+    """Propagates a task list with some sample tasks.  
+
+    Args: task_list (TaskList): Task list to propagate.  
+
+    Returns: TaskList: The propagated task list.  
+    """      
+                 
+# sample recurring task      
+    r_task = RecurringTask("Go to the gym", datetime.datetime.now(), 
+    datetime.timedelta(days=7))  
+# propagate the recurring task with some completed dates    
+#    r_task
+    r_task.completed_dates.append(datetime.datetime.now() - datetime.timedelta(days=7))  
+    r_task.completed_dates.append(datetime.datetime.now() - datetime.timedelta(days=14))  
+    r_task.completed_dates.append(datetime.datetime.now()- datetime.timedelta(days=22))      
+    r_task.date_created = datetime.datetime.now() - datetime.timedelta(days=28)  
+
+    task_list.add_task(r_task) 
+
+    return task_list  
+
+def list_options(task_list):
+    #propagate the task list with some sample tasks
+    task_list = propagate_task_list(task_list)
+
+    #task_list = propagate_task_list(task_list)
+
+    while True:
+    
+        print("\nTo_do List Manager")
+        print("1. Add a task")
+        print("2. View tasks")
+        print("3. Remove a task")
+        print("4. Mark a task as completed")
+        print("5. Edit a task")
+        print("6. Change a task due date")
+        print("7. View overdue tasks")
+        print("8. Quit")
+
+        choice = input("Enter a choice: ")
+
+        if choice == "1":
+            title = input("Enter a task: ")
+            '''Asked the user to specify whether the task is a regular task or a recurring task. 
+            If the user selects recurring task, they are prompted to enter the interval (interval_days) in days 
+            for the recurring task. Based on the user's input, either a regular Task or a RecurringTask 
+            is created and added to the task list.'''
+            task_type = input("Enter task type (a for regular, b for recurring): ")
+            input_date = input("Enter a due date for the task (YYYY-MM-DD): ")
+            date_object = datetime.datetime.strptime(input_date, "%Y-%m-%d")
+            
+            if task_type == "b":
+                interval_days = int(input("Enter interval in days: "))
+                interval = datetime.timedelta(days=interval_days) 
+                ''' Create a RecurringTask if the user selects recurring task, otherwise create a regular Task& add it to the list. '''
+                task = RecurringTask(title, date_object, interval)
+                task_list.add_task(task)
+            else:
+                '''  changed the conditional that if it is a normal task, create a Task object & add it to the list. '''
+                task = Task(title, completed=False, date_due=date_object)
+                task_list.add_task(task)
+            
+        elif choice == "2":
+            task_list.view_tasks()
+
+        elif choice == "3":
+            ix = int(input("Enter number of task to be removed from list: "))
+            task_list.remove_task(ix -1)  # Adjusting for 0-based index
+
+        elif choice == "4":
+            ix = int(input("Enter number of task to be marked as completed: "))
+            task = task_list.get_task(ix - 1)
+            task.mark_completed() # had previously Adjusted for 0-based index
+  
+        elif choice == "5":
+            ix = int(input("Enter number of task to be changed: "))
+            task = task_list.get_task(ix - 1)
+            ch_description = input("Do you want to change the description of the task? (y/n): ")
+            if ch_description.lower() == "y":
+                new_description = input("Enter new description: ")
+                task.change_description(new_description) # had previously Adjusted for 0-based index
+            # new_title = input("Enter new title:")
+            # task.change_title(new_title) # had previously Adjusted for 0-based index
+            # ch_description = input("Do you want to change the description of the task? (y/n): ")
+            # if ch_description.lower() == "y":
+            #     new_description = input("Enter new description: ")
+            #     task.change_description(new_description) # had previously Adjusted for 0-based index
+
+        elif choice == "6":
+            ix = int(input("Enter number of task to be changed: "))
+            new_date = input("Enter new due date (YYYY-MM-DD): ")
+            date_object = datetime.datetime.strptime(new_date, "%Y-%m-%d")
+            task = task_list.get_task(ix - 1)
+            task.change_date_due(date_object) # had previously Adjusted for 0-based index
+
+        elif choice == "7":
+            print("Overdue Tasks:")
+            task_list.view_overdue_tasks()
+
+        elif choice == "8":
+            print("Exiting To-Do List Manager")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+def main() -> None:
+
+    owner = input("Enter your name: ")
+    task_list = TaskList(owner)
+
+#    task_list = propagate_task_list(task_list) # populate once # add this line back in to populate the task list with some sample tasks if required
+    list_options(task_list)
+
+if __name__ == "__main__":  
+    main()
+

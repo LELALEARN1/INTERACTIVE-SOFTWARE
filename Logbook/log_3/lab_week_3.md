@@ -1,4 +1,11 @@
-#%%
+# Section 1: FUNCTIONS AND SCOPE
+
+## Exercise 1
+## Functions in Python
+
+Creating Functions
+
+```python
 def greet_user():
     print("Hello!")
 
@@ -9,15 +16,39 @@ def greet_user(first_name, last_name):
 
 greet_user("John", "Smith")
 greet_user(last_name="Smith", first_name="John")
-#%%            
+```
+
+Output when run
+
+```console
+Hello!
+Hello John Smith!
+Hello John Smith!
+```
+
+
+```python
 def greet_user(first_name, last_name, university="UWS"):
     print(f"Hello {first_name} {last_name} from {university}!")
 greet_user("John", "Smith")
 
 greet_user("John", "Smith", "UWS London")
 #or
+#Keyword arguments
 greet_user("John", "Smith", university="UWS London")
-#%%
+```
+
+Output when run
+
+```console
+Hello John Smith from UWS!
+Hello John Smith from UWS London!
+Hello John Smith from UWS London!
+```
+
+## Task 1: Greeting Message
+
+```python
 #Task 1: Greeting message
 friend_list = ["John", "Jane", "Jack"]
 def greet_friends(names):
@@ -25,7 +56,19 @@ def greet_friends(names):
         print("Hello", name, "!")
 
 greet_friends(friend_list)
-#%%
+```
+
+Output when run
+
+```console
+Hello John !
+Hello Jane !
+Hello Jack !
+```
+
+## Return 
+
+```python
 #Return 
 def add_numbers(num1, num2):
     return num1 + num1
@@ -48,14 +91,36 @@ def add_and_multiply_numbers(num1, num2):
 sum, product = add_and_multiply_numbers(5,10)
 print(sum)
 print(product)
-#%%
+```
+
+Output when  run
+
+```console
+15
+15
+50
+```
+
+## Task 2: Tax Calculation
+
+```python
 #Task 2 Tax Calculation
 def calculate_tax(income, tax_rate):
     tax = income * tax_rate
     print(tax)
 
 calculate_tax(50000, 0.2)
-#%%
+```
+
+Output when run
+
+```console
+10000.0
+```
+
+# Compound Tax Calculation
+
+```python
 #TASK: Compound Interest Calculator Function:
 def with_interest(principal, duration, interest_rate):
 
@@ -75,54 +140,16 @@ def with_interest(principal, duration, interest_rate):
     
 with_interest(1000, 5, 0.03)
 print(with_interest)
-#%%
-#Exercise 2: Variable Scope
+```
 
-# def new_function():
-#     my_new_variable = 5
+Output when run
 
-# new_function() # call the function
-
-#print(my_new_variable)
-#generates an error because the variable has not been defined WITHIN the Function!
-
-#So define the variable INSIDE the Function:
-my_new_variable = 0
-
-def new_function():
-  my_new_variable = 10
-  print(my_new_variable)
-
-new_function()
-#print(my_new_variable)
-
-#Section 2: Assertions & Errors
-
-#Ex3 : Assertions
-#Python assertions are used to validate that certain conditions
-#hold during program execution
-#Assertions help ypur catch & handle errors early in your code
-#Assertions generally are statements that check whether a given 
-#condition is true
-#If the condition is False, an AssertionError is raised,
-#indicating a problem in the code
-#Assertions are sueful for debugging & ensuring that your code
-#works as expected & can stop problems from occurring before 
-#they become severe
-
-#If you built the function in Ex5 correctly, the following code
-#should run without problems:
-
-#assert compound_interest(1000, 5, 0.03)
-assert with_interest(1000, 5, 0.03) == 1159
-#????????
-
-#Task1: Assertion
-#Ex4: Identifying & Fixing Common Errors
-
-#Section 3: Your first larger-scale Python programme
-#Ex4: Complete template program
-
-#Task: To-Do list manager
-#in separate file in session 3 to_do_week_3.py
+```console
+Year 1: 1030
+Year 2: 1060
+Year 3: 1092
+Year 4: 1125
+Year 5: 1159
+<function with_interest at 0x0000021D762E9C70>
+```
 

@@ -55,6 +55,7 @@ else:
 #%%
 #Section 2 : Python Lists
 #Ex 1: Creating a List
+#%%
 integer_list = [1, 2, 3, 4, 5]
 string_list = ["apple", "banana", " orange", "grape"]
 empty_list = []
@@ -84,7 +85,7 @@ print(city_list)
 
 city_list[1] = "Birmingham"
 print(city_list)
-
+#%%
 #Ex 4: Summary Task
 #Task: CREATE, ACCESS & MODIFY Lists
 colours = ["red", "pink", "orange"]
@@ -106,19 +107,19 @@ if "red" in colours:
     print("Red is in the list")
 else:
     print("red is not in the list")
-#uase slicing to craete a new lsit named 
+#use slicing to craete a new lsit named 
 #selected_colours containing the second and
 #third elements from the colours list
 selected_colours = colours[1:3]
 #print the selected_colours list
 print(selected_colours)
-
+#%%
 #Section 3: Python Loops
 i = 0
 while i < 5:
     print(i)
     i += 1
-
+#%%
 #Ex 2: For Loops
 for fruit in string_list:
     print(fruit)
@@ -127,14 +128,14 @@ for fruit in string_list:
 #in the city_list list
 for city in city_list:
     print(city)
-
-#Ex 3: 
+#%%
+#Ex 3: Loop keywords: range, break and continue
 range(0,5) # will return [0, 1, 2, 3, 4]
 range(5) # will return [0, 1, 2, 3, 4]
 range(0, 5, 2) # will return [0, 2, 4] because the 
 #third parameter is the step size
 range(5, 0, -1) #will return [5, 4, 3, 2, 1]
-
+#%%
 for i in range(5):
     print(i)
 
@@ -145,16 +146,16 @@ for i in range(5):
 
 #Task: modify the code above to print the numbers
 # 0 through 4, but stop the loop when i is equal to 3
-
-#to continue counting form 0 to 4, but skip the
+#%%
+#to continue counting from 0 to 4, but skip the
 #number 2, we can do this by using the continue
 #keyword inside an if statement like this:
 for i in range(5):
     if i == 2:
         continue
     print(i)
-
-#Ex 4: Sumamry Tasks
+#%%
+#Ex 4: Summary Tasks
 #Task: Even numbers
 #create a list of numbers from 1 to 10
 #use a for loop to iterate through the list and  
@@ -164,20 +165,20 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for number in numbers:
     if number % 2 == 0:
         print(number)
-
+#%%
 #Sum of Squares
 sum_of_squares = 0
 for i in range(6):
     sum_of_squares += i ** 2
     print(sum_of_squares)
-
+#%%
 #Task: Countdown
 countdown = 10
 while countdown > 0:
     print(countdown)
     countdown -= 1
 print("Liftoff!")
-
+#%%
 #Section 4: Obtaining user input
 
 user_input = input("Enter something: ")
@@ -190,7 +191,7 @@ age = int(age)
 
 next_year_age = age + 1
 print("Next year, you'll be", next_year_age, "years old.")
-
+#%%
 #Ex 1: User input Tasks
 #Task 1: User Input and Conditional Statements
 users_age = input("Enter your age: ")
@@ -202,6 +203,7 @@ elif users_age < 65:
 else:
     print("You are a senior citizen.") 
 
+#%%
 #Task: Temperature Converter
 my_string_zero = "Welcome to temperature converter"
 print(my_string_zero)
@@ -216,7 +218,7 @@ print(string_two)
 degree_k = (celsius + 273.15)
 string_three = f"{celsius} Celsius is equivalent to {degree_k} Kelvin"
 print(string_three)
-
+#%%
 #Extra task
 my_string_zero ="Welcome to Temperature Converter Extra"
 print(my_string_zero)
@@ -233,3 +235,5 @@ else:
     degree_k == (celsius + 273.15)
     string_three = f"{celsius} Celsius is equivalent to {degree_k} Kelvin."
     print(string_three)
+#%%
+#Section 5: Putting it all together - To-Do List Manager    
